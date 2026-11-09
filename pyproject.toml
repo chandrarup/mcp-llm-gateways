@@ -1,0 +1,26 @@
+[project]
+name = "sa-assessment"
+version = "0.1.0"
+description = "MCP server, MCP security gateway, streaming PII guardrail, and LLM rate-limit/failover router"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.2",
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+    "pydantic>=2.14.3",
+    "pyjwt>=2.15.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["task1_mcp_server", "task2_mcp_gateway", "task3_llm_guardrail", "task4_router"]
